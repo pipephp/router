@@ -1,0 +1,42 @@
+{
+  "name": "pipe/router",
+  "description": "Blazingly fast php router, route parser",
+  "keywords": [
+    "php",
+    "simple router",
+    "routing",
+    "route parser"
+  ],
+  "homepage": "https://github.com/pipephp/router",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Unamata Sanatarai",
+      "email": "unamatasanatarai@gmail.com",
+      "homepage": "https://github.com/unamatasanatarai",
+      "role": "c.e.o."
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Pipe\\": "src/"
+    },
+    "files": [
+      "src/route.php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require-dev": {
+    "pestphp/pest": "^1.22"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/pest"
+  }
+}
