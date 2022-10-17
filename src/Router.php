@@ -23,23 +23,24 @@ class Router
 
     public function resolve(string $method, string $uri): object
     {
+        $uriarr = explode("?", $uri);
+        $uri = array_shift($uriarr);
         foreach ($this->routes[$method] ?? [] as $pattern => $options) {
             preg_match($pattern, $uri, $matches);
-            if ($matches) {
+            if (count($matches)) {
                 $resolution = self::FOUND;
                 break;
             }
         }
 
-        // extract found keys into args
         $args = [];
-
         foreach ($options['expected'] ?? [] as $e) {
             $args[$e] = $matches[$e];
         }
+
         return (object) [
             'resolution' => $resolution ?? self::NOT_FOUND,
-            'handler' => $options["handler"] ?? "",
+            'handler' => ($resolution ?? self::NOT_FOUND) == self::FOUND ? $options["handler"] : "404",
             'args' => $args,
         ];
     }
@@ -77,7 +78,7 @@ class Router
         }
 
         return [
-            "regex" => "~" . implode("", $re) . "~",
+            "regex" => "~^" . implode("", $re) . "$~",
             "expected" => $nameds,
         ];
     }

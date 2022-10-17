@@ -13,11 +13,11 @@ it("singleton adds get route with string action", function () {
     $routes = $r->routes();
     expect($routes)->toMatchArray([
         "GET" => [
-            "~/~" => [
+            "~^/$~" => [
                 "handler" => "home",
-                "expected" => []
-            ]
-        ]
+                "expected" => [],
+            ],
+        ],
     ]);
 });
 
@@ -27,11 +27,11 @@ it("singleton overwrites doubled matches", function () {
     $routes = $r->routes();
     expect($routes)->toMatchArray([
         "GET" => [
-            "~/~" => [
+            "~^/$~" => [
                 "handler" => "redirect",
-                "expected" => []
-            ]
-        ]
+                "expected" => [],
+            ],
+        ],
     ]);
     expect($routes)->toHaveCount(1);
 });
