@@ -48,3 +48,12 @@ it("can be instanciated multiple times", function () {
 
     expect($r1->routes())->not->toMatchArray($r2->routes());
 });
+
+it("matches with or without trailin slash", function () {
+    $r = (new Router())
+    ->match("GET", "/about", "about-noslash");
+
+    expect($r->resolve("GET", "/about")->resolution)->toEqual(0);
+    expect($r->resolve("GET", "/about")->handler)->toEqual("about-noslash");
+    expect($r->resolve("GET", "/about/")->handler)->toEqual("about");
+});
