@@ -37,7 +37,7 @@ class Router
         foreach ($options['expected'] ?? [] as $e) {
             $args[$e] = $matches[$e];
         }
-        return (object)[
+        return (object) [
             'resolution' => $resolution ?? self::NOT_FOUND,
             'handler' => $options["handler"] ?? "",
             'args' => $args,
@@ -53,7 +53,8 @@ class Router
         $nameds = [];
         $offset = 0;
 
-        for ($i = 0; $i < count($matches); $i++) {
+        $count = count($matches);
+        for ($i = 0; $i < $count; $i++) {
             $set = $matches[$i];
 
             $re[] = substr($pattern, $offset, $set[0][1] - $offset);
@@ -83,7 +84,7 @@ class Router
 
     public function match(string $method, string $pattern, mixed $handler): self
     {
-        $rex =  $this->regexize($pattern);
+        $rex = $this->regexize($pattern);
         $this->routes[strtoupper($method)][$rex["regex"]] = [
             "handler" => $handler,
             "expected" => $rex["expected"],

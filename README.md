@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/pipe/route"><img src="https://poser.pugx.org/pipe/route/v/stable?style=for-the-badge" alt="Latest Stable Version"/></a>
-    <a href="https://packagist.org/packages/pipe/route"><img src="https://poser.pugx.org/pipe/route/downloads?style=for-the-badge" alt="Total Downloads"/></a>
-    <a href="https://packagist.org/packages/pipe/route"><img src="https://poser.pugx.org/pipe/route/license?style=for-the-badge" alt="License"/></a>
+    <a href="https://packagist.org/packages/pipe/route"><img src="https://poser.pugx.org/pipe/router/v/stable?style=for-the-badge" alt="Latest Stable Version"/></a>
+    <a href="https://packagist.org/packages/pipe/route"><img src="https://poser.pugx.org/pipe/router/downloads?style=for-the-badge" alt="Total Downloads"/></a>
+    <a href="https://packagist.org/packages/pipe/route"><img src="https://poser.pugx.org/pipe/router/license?style=for-the-badge" alt="License"/></a>
 </p>
 
 ---
@@ -15,7 +15,7 @@
 ## Installation
 
 ```bash
-composer require pipe/route
+composer require pipe/router
 ```
 
 ## Philosophy
